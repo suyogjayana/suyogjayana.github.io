@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name · Portfolio</title>
+  <meta name="description" content="Portfolio of Your Name, a [Your Role]." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <a href="#top" class="logo">YN</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="theme-toggle" aria-label="Switch light or dark mode">Dark</button>
+  </header>
+
+  <main id="top">
+    <!-- HERO: change your name, role and one-line pitch here -->
+    <section class="hero">
+      <p class="eyebrow">Hi, I'm</p>
+      <h1>Your Name</h1>
+      <h2>[Your Role, e.g. Frontend Developer]</h2>
+      <p class="lead">One sentence about what you build and what you care about.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">See my work</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h3>About me</h3>
+      <p>Write 2 to 4 sentences: where you're from, what you study or do, what excites you, and what kind of work you're looking for.</p>
+    </section>
+
+    <!-- SKILLS: add or remove <li> items -->
+    <section id="skills" class="section">
+      <h3>Skills</h3>
+      <ul class="tags">
+        <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Git &amp; GitHub</li><li>Skill 5</li>
+      </ul>
+    </section>
+
+    <!-- PROJECTS: copy a whole <article> block to add another project -->
+    <section id="projects" class="section">
+      <h3>Projects</h3>
+      <div class="grid">
+        <article class="card">
+          <h4>Project One</h4>
+          <p>What it does, and what you learned building it.</p>
+          <ul class="tags small"><li>HTML</li><li>CSS</li></ul>
+          <div class="links"><a href="#">Live demo</a><a href="#">Code</a></div>
+        </article>
+        <article class="card">
+          <h4>Project Two</h4>
+          <p>What it does, and what you learned building it.</p>
+          <ul class="tags small"><li>JavaScript</li></ul>
+          <div class="links"><a href="#">Live demo</a><a href="#">Code</a></div>
+        </article>
+        <article class="card">
+          <h4>Project Three</h4>
+          <p>What it does, and what you learned building it.</p>
+          <ul class="tags small"><li>Python</li></ul>
+          <div class="links"><a href="#">Live demo</a><a href="#">Code</a></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <h3>Contact</h3>
+      <p>Want to work together or just say hi? My inbox is open.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:you@example.com">Email me</a>
+        <a class="btn" href="https://github.com/suyogjayana" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> Your Name</footer>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+/* Layout: one centered column, sticky nav, hero sized to its content.
+   Change --accent to restyle the whole site. */
+:root {
+  --bg: #f7f9f8;
+  --text: #14201d;
+  --muted: #55625e;
+  --card: #ffffff;
+  --border: #dde5e2;
+  --accent: #0f766e;
+  --on-accent: #ffffff;
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1513; --text: #e6efec; --muted: #9db0aa; --card: #152020;
+    --border: #253330; --accent: #2dd4bf; --on-accent: #062420; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1513; --text: #e6efec; --muted: #9db0aa; --card: #152020;
+  --border: #253330; --accent: #2dd4bf; --on-accent: #062420; color-scheme: dark;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+a { color: var(--accent); text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+h1, h2, h3, h4 { font-family: var(--font-display); text-wrap: balance; line-height: 1.15; }
+
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: .9rem max(16px, 5vw);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.logo { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; color: var(--text); }
+.nav nav { display: flex; gap: 1.25rem; margin-left: auto; }
+.nav nav a { color: var(--muted); }
+.nav nav a:hover { color: var(--text); }
+#theme-toggle {
+  background: none; color: var(--text); border: 1px solid var(--border);
+  border-radius: 8px; padding: .35rem .7rem; cursor: pointer; font: inherit; font-size: .85rem;
+}
+
+main { max-width: 960px; margin: 0 auto; padding-inline: max(16px, 5vw); }
+
+.hero { padding-block: 6rem 4.5rem; display: flex; flex-direction: column; gap: .5rem; }
+.eyebrow { color: var(--accent); font-weight: 600; letter-spacing: .04em; }
+.hero h1 { font-size: clamp(2.6rem, 8vw, 4.75rem); letter-spacing: -.02em; }
+.hero h2 { font-size: clamp(1.2rem, 3.5vw, 1.75rem); color: var(--muted); font-weight: 500; }
+.lead { max-width: 60ch; font-size: 1.1rem; color: var(--muted); margin-top: .5rem; }
+
+.cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.25rem; }
+.btn {
+  padding: .7rem 1.2rem; border-radius: 10px;
+  border: 1px solid var(--border); color: var(--text); font-weight: 600;
+  transition: transform .15s, border-color .15s;
+}
+.btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+
+.section { padding-block: 4rem; border-top: 1px solid var(--border); }
+.section h3 { font-size: 1.75rem; margin-bottom: 1.25rem; }
+.section > p { max-width: 60ch; color: var(--muted); }
+
+.tags { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; }
+.tags li { padding: .35rem .85rem; border-radius: 999px; background: var(--card); border: 1px solid var(--border); }
+.tags.small li { font-size: .8rem; padding: .2rem .6rem; }
+
+.grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.card {
+  min-width: 0;
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.4rem; display: flex; flex-direction: column; gap: .75rem;
+  transition: transform .15s, border-color .15s;
+}
+.card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.card h4 { font-size: 1.2rem; }
+.card p { color: var(--muted); }
+.links { display: flex; gap: 1rem; margin-top: auto; font-weight: 600; }
+
+footer { text-align: center; padding: 2rem 16px; color: var(--muted); border-top: 1px solid var(--border); }
+
+@media (max-width: 600px) {
+  .nav nav { display: none; }
+  #theme-toggle { margin-left: auto; }
+  .hero { padding-block: 3.5rem 3rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .card { transition: none; }
+}
